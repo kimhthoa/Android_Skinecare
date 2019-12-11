@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Trang chủ"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:id="@+id/menu_trangchu"/>
+    <item android:title="Danh mục"
+        android:icon="@drawable/ic_widgets_black_24dp"
+        android:id="@+id/menu_danhmuc"/>
+    <item android:title="Thông báo"
+        android:icon="@drawable/ic_notifications_none_black_24dp"
+        android:id="@+id/menu_thongbao"/>
+    <item android:title="Tôi"
+        android:icon="@drawable/ic_person_outline_black_24dp"
+        android:id="@+id/menu_toi"/>
+</menu>

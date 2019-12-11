@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_chitiet_chat"
+        android:title="Chat ngay"
+        android:icon="@drawable/ic_message_black_24dp"/>
+    <item android:id="@+id/menu_chitiet_themGioHang"
+        android:title="Thêm vào giỏ"
+        android:icon="@drawable/ic_add_shopping_cart_black_24dp"/>
+    <item android:id="@+id/menu_chitiet_muangay"
+        android:title="Mua ngay"/>
+</menu>

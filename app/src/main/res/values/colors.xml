@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E91E63</color>
+    <color name="colorPrimaryDark">#F1EBED</color>
+    <color name="hong">#D81B60</color>
+    <color name="trang">#FFFDFD</color>
+    <color name="den">#000</color>
+    <color name="xam">#E7E4E4</color>
+</resources>

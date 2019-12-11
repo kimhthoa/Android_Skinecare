@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+   android:padding="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+   <LinearLayout
+       android:id="@+id/contain_all_ln1"
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <RelativeLayout
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <Button
+               android:id="@+id/Contain_All_btnSearch"
+               android:layout_toLeftOf="@id/contain_all_btngiohang"
+               android:layout_width="match_parent"
+               android:background="@color/trang"
+               android:text="Nhập sản phẩm cần tìm..."
+               android:textAllCaps="false"
+               android:drawableLeft="@drawable/ic_search_black_24dp"
+               android:layout_height="wrap_content">
+
+           </Button>
+
+           <ImageView
+               android:id="@+id/contain_all_btngiohang"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="10dp"
+               android:layout_marginRight="20dp"
+               android:layout_toLeftOf="@id/contain_all_btnmess"
+               android:paddingRight="0dp"
+               android:src="@drawable/ic_shopping_cart_black_24dp" />
+           <ImageView
+               android:id="@+id/contain_all_btnmess"
+               android:layout_alignParentRight="true"
+               android:layout_marginTop="10dp"
+               android:src="@drawable/ic_message_black_24dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+       </RelativeLayout>
+   </LinearLayout>
+    <FrameLayout
+        android:layout_below="@id/contain_all_ln1"
+        android:background="@color/xam"
+        android:id="@+id/contain_all_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="590dp">
+    </FrameLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/contain_all_bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemTextColor="@color/hong"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/button_navigation"/>
+</RelativeLayout>

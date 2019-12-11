@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/xam"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:src="@drawable/toi" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/toi_fragment_avatar"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="110dp"
+            android:src="@drawable/ic_perm_identity_black_24dp"
+            app:civ_border_width="1dp"
+            app:civ_circle_background_color="@color/trang">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <Button
+            android:id="@+id/toi_fragment_dangnhap"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/toi_fragment_dangky"
+            android:background="@color/trang"
+            android:text="Đăng nhập"
+            android:textColor="@color/hong"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/toi_fragment_dangky"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="110dp"
+            android:background="#E6D8D8"
+            android:text="Đăng ký"
+            android:textColor="@color/hong"
+            android:textSize="10dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/trang"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Đơn mua"
+                android:textColor="@color/den" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/trang"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Đơn nạp thẻ &amp; Dịch vụ"
+                android:textColor="@color/den" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/trang"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Đã thích"
+                android:textColor="@color/den" />
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@color/trang"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Mới xem"
+            android:textColor="@color/den" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/trang"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Đánh giá của tôi"
+                android:textColor="@color/den" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/toi_fragment_thietlaptk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/trang"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Thiết lập tài khoản"
+                android:textColor="@color/den" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/trang"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Trung tâm đánh giá"
+                android:textColor="@color/den" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

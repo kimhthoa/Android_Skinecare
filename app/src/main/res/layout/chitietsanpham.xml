@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/chitietsanpham_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+    </androidx.appcompat.widget.Toolbar>
+    <RelativeLayout
+        android:id="@+id/chitietsanpham_rl1"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/chitietsanpham_imgGiohang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_shopping_cart_black_24dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/chitietsanpham_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/chitietsanpham_rl1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/chitietsanpham_lnAnh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chitietsanpham_rl1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
+                <ImageView
+                    android:id="@+id/chitietsanpham_img"
+                    android:layout_width="350dp"
+                    android:layout_height="180dp"
+                    android:src="@drawable/phanmissha" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chitietsanpham_lnAnh"
+                android:background="#F1EEEE"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/chitietsanpham_lnGia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/chitietsanpham_lnAnh"
+                    android:background="@color/trang"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/chitietsanpham_txtGia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="300dp"
+                        android:textSize="20dp"
+                        android:text="235.000đ"
+                        android:textColor="#F44336" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_directions_bus_black_24dp"
+                            android:text="Phí vận chuyển: "
+                            android:layout_marginBottom="5dp"
+                            android:textColor="@color/den" />
+                        <TextView
+                            android:id="@+id/chitietsanpham_phivanchuyen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_toys_black_24dp"
+                            android:text="Số lượng có sẵn: "
+                            android:layout_marginBottom="5dp"
+                            android:textColor="@color/den" />
+                        <TextView
+                            android:id="@+id/chitietsanpham_soluongsosan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_replay_5_black_24dp"
+                            android:text="Đổi trả trong vòng 5 ngày "
+                            android:textColor="@color/den" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:drawableLeft="@drawable/ic_verified_user_black_24dp"
+                            android:text="Hàng chính hãng 100% "
+                            android:textColor="@color/den" />
+                    </RelativeLayout>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/chitietsanpham_btn_chonmua"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/hong"
+                    android:text="Chọn mua"
+                    android:textAllCaps="false"
+                    android:textColor="@color/trang"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"></Button>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@color/trang"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Chi tiết sản phẩm"
+                        android:textColor="@color/hong"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="Thương hiệu: "
+                            android:textColor="@color/den" />
+
+                        <TextView
+                            android:id="@+id/chitietsanpham_thuonghieu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:paddingTop="5dp"
+                            android:text="Dior"
+                            android:textColor="@color/den" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="Dung tích: "
+                            android:textColor="@color/den" />
+
+                        <TextView
+                            android:id="@+id/chitietsanpham_dungtich"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:paddingTop="5dp"
+                            android:text="500ml "
+                            android:textColor="@color/den" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="@color/trang"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Mô tả sản phẩm"
+                        android:textColor="@color/hong"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/chitietsanpham_txtmota"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/trang"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Đánh giá sản phẩm"
+                        android:textColor="@color/hong"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/chitietsanpham_lv_danhgia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/chitietsanpham_btn_scrollchonmua"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/hong"
+        android:text="Chọn mua"
+        android:textAllCaps="false"
+        android:textColor="@color/trang"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+    </Button>
+</RelativeLayout>
