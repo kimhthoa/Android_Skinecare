@@ -1,6 +1,8 @@
 package com.example.thesameskincare.db;
 
-public class db_User {
+import java.io.Serializable;
+
+public class db_User implements Serializable {
     private int maUser;
     private String TenUser;
     private String matKhau;

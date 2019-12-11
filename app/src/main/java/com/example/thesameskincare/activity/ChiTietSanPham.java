@@ -11,10 +11,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.thesameskincare.R;
+import com.example.thesameskincare.adapter.GioHang_Adapter;
 import com.example.thesameskincare.adapter.RecycleViewAdapter_DanhGiaSP;
 import com.example.thesameskincare.db.db_DanhGiaSP;
+import com.example.thesameskincare.db.db_GioHang;
 import com.example.thesameskincare.db.db_SanPham;
 
 import java.text.DateFormat;
@@ -30,7 +33,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import static android.view.View.INVISIBLE;
 
-public class ChiTietSanPham extends AppCompatActivity  {
+public class ChiTietSanPham extends AppCompatActivity implements View.OnClickListener {
     TextView phivc, slcosan, mota, thuonghieu, dungtich, gia;
     EditText edtBinhLuan;
     ImageView imgSend, img;
@@ -39,7 +42,8 @@ public class ChiTietSanPham extends AppCompatActivity  {
     ScrollView scrollView;
     db_SanPham sanpham;
     public ArrayList<db_DanhGiaSP> listdg = new ArrayList<>();
-//    RecycleViewAdapter_DanhGiaSP recycleViewAdapter_danhGiaSP;
+    GioHang_Adapter gioHang_adapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,9 +63,6 @@ public class ChiTietSanPham extends AppCompatActivity  {
         LinearLayoutManager linearLayout = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
         rvdanhgia.setLayoutManager(linearLayout);
 
-//        recycleViewAdapter_danhGiaSP = new RecycleViewAdapter_DanhGiaSP(listdg, this);
-//        rvdanhgia.setAdapter(recycleViewAdapter_danhGiaSP);
-
         chonmuascroll.setVisibility(View.INVISIBLE);
         ScrollView scrollView = findViewById(R.id.chitietsanpham_scroll);
         Rect scrollBounds = new Rect();
@@ -75,12 +76,11 @@ public class ChiTietSanPham extends AppCompatActivity  {
             }
         });
 
-        //imgSend.setOnClickListener(this);
+        chonmua.setOnClickListener(this);
+        chonmuascroll.setOnClickListener(this);
     }
 
     public void initData(){
-//        edtBinhLuan = (EditText) findViewById(R.id.chitietsanpham_edtbinhluan);
-//        imgSend = (ImageView) findViewById(R.id.chitietsanpham_imgsend);
 
         img = (ImageView) findViewById(R.id.chitietsanpham_img);
         phivc = (TextView)findViewById(R.id.chitietsanpham_phivanchuyen);
@@ -92,12 +92,13 @@ public class ChiTietSanPham extends AppCompatActivity  {
         rvdanhgia = (RecyclerView) findViewById(R.id.chitietsanpham_lv_danhgia);
         chonmua = (Button) findViewById(R.id.chitietsanpham_btn_chonmua);
         chonmuascroll = (Button) findViewById(R.id.chitietsanpham_btn_scrollchonmua);
+        gioHang_adapter = new GioHang_Adapter(getApplicationContext(),R.layout.giohang_item, Contain_All.gioHangs);
+
 
     }
 
 
     public void getBundlesp(){
-        //3 intent
         Intent intent = getIntent();
         sanpham = (db_SanPham) intent.getSerializableExtra("sanpham" );
     }
@@ -124,5 +125,40 @@ public class ChiTietSanPham extends AppCompatActivity  {
         mota.setText(sanpham.getMota());
         gia.setText(sanpham.getDongia()+"");
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.chitietsanpham_btn_chonmua :
+            case R.id.chitietsanpham_btn_scrollchonmua:
+                Intent intent = new Intent(ChiTietSanPham.this, GioHang.class);
+
+                if(Contain_All.gioHangs.size() > 0) {
+                    boolean exist = false;
+                    for (int i = 0; i <Contain_All.gioHangs.size(); i++) {
+                        if(Contain_All.gioHangs.get(i).getIdSanpham() == sanpham.getMaSanPham()) {
+                            exist = true;
+                            int sl =Contain_All.gioHangs.get(i).getSoluong();
+                            if (sl == 10) {
+                                Toast.makeText(ChiTietSanPham.this, "Bạn chỉ ddc phép mua 10 sản phẩm của mặt hàng này", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            Contain_All.gioHangs.get(i).setSoluong(sl + 1);
+                        }
+                    }
+                    if (exist == false) {
+                        Contain_All.gioHangs.add(new db_GioHang( sanpham.getMaSanPham(), sanpham.getAnh(), sanpham.getTenSanPham(), sanpham.getDongia(), 1));
+                        gioHang_adapter.notifyDataSetChanged();
+                    }
+                } else {
+                    Contain_All.gioHangs.add(new db_GioHang( sanpham.getMaSanPham(), sanpham.getAnh(), sanpham.getTenSanPham(), sanpham.getDongia(), 1));
+                    gioHang_adapter.notifyDataSetChanged();
+                }
+
+
+                startActivity(intent);
+                break;
+        }
     }
 }

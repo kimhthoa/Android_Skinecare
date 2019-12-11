@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/giohang_img"
         android:layout_toRightOf="@id/giohang_checkbox1"
-        android:src="@drawable/phanmissha"
+        android:src="@drawable/avatar"
         android:layout_marginTop="10dp"
         android:layout_width="100dp"
         android:layout_height="100dp"/>
@@ -22,12 +22,14 @@
         android:layout_width="245dp"
         android:layout_height="match_parent">
         <TextView
+            android:id="@+id/giohang_item_tensp"
             android:text="Phấn nước Missha"
             android:textColor="@color/den"
             android:textSize="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/giohang_item_giasp"
             android:text="200000đ"
             android:textSize="15dp"
             android:textColor="#F44336"
@@ -43,17 +45,20 @@
                 android:layout_height="40dp">
                 <TableRow >
                     <Button
+                        android:id="@+id/giohang_item_tru"
                         android:text="-"
                         android:textSize="20dp"
                         android:layout_height="wrap_content"
                         android:layout_width="35dp"
                         android:focusable="false"/>
                     <EditText
+                        android:id="@+id/giohang_item_edtSoLuong"
                         android:layout_marginLeft="2dp"
                         android:text="0"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"/>
                     <Button
+                        android:id="@+id/giohang_item_cong"
                         android:text="+"
                         android:textSize="20dp"
                         android:layout_height="wrap_content"
@@ -65,6 +70,7 @@
         </LinearLayout>
     </LinearLayout>
     <Button
+        android:id="@+id/giohang_item_sua"
         android:layout_alignParentRight="true"
         android:background="#00000000"
         android:textSize="10dp"

@@ -9,7 +9,6 @@
     <ImageView
         android:id="@+id/danhmuc_item_img"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/srminnisfree"
         android:layout_width="200dp"
         android:layout_height="200dp"/>
     <TextView

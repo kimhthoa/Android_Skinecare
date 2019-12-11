@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.thesameskincare.R;
+import com.example.thesameskincare.db.db_GioHang;
 import com.example.thesameskincare.db.db_SanPham;
 import com.example.thesameskincare.fragment.DanhMuc_Fragment;
 import com.example.thesameskincare.fragment.ThongBao_Fragment;
@@ -39,6 +40,7 @@ public class Contain_All extends AppCompatActivity implements View.OnClickListen
     BottomNavigationView bnv;
     ImageView imgGioHang, imgMess;
     Button btnsearch;
+    public static ArrayList<db_GioHang> gioHangs;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,6 +113,7 @@ public class Contain_All extends AppCompatActivity implements View.OnClickListen
         imgGioHang = findViewById(R.id.contain_all_btngiohang);
         imgMess = findViewById(R.id.contain_all_btnmess);
         btnsearch = (Button) findViewById(R.id.Contain_All_btnSearch);
+        gioHangs = new ArrayList<>();
     }
 
     @Override
@@ -126,23 +129,5 @@ public class Contain_All extends AppCompatActivity implements View.OnClickListen
                 break;
         }
     }
-
-//    public ArrayList<db_SanPham> getListSanPham(){
-//        ArrayList<db_SanPham> listSp = new ArrayList<>();
-//        listSp.add(new db_SanPham("SP01", "Phấn Missha", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//        listSp.add(new db_SanPham("SP02", "Kem chống năng", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//        listSp.add(new db_SanPham("SP03", "Tẩy trang", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//        listSp.add(new db_SanPham("SP04", "Màu mắt", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//        listSp.add(new db_SanPham("SP05", "Mặt nạ", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//        listSp.add(new db_SanPham("SP06", "Dưỡng mắt", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//        listSp.add(new db_SanPham("SP07", "Chỉ kẻ mài", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//        listSp.add(new db_SanPham("SP08", "Chì xén", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//        listSp.add(new db_SanPham("SP09", "Nước tẩy trang", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//        listSp.add(new db_SanPham("SP010", "Mạt nạ", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//        listSp.add(new db_SanPham("SP011", "Son", 250000,20000, 120, "MISSHA", "Da hỗn hợp", 150));
-//
-//        return  listSp;
-//    }
-    
 
 }

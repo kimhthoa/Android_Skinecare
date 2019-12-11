@@ -11,8 +11,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/Item_DanhGiaSP_Image"
             android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/matnakeihls">
+            android:layout_height="25dp">
         </de.hdodenhof.circleimageview.CircleImageView>
         <TextView
             android:id="@+id/Item_DanhGiaSP_Ten"

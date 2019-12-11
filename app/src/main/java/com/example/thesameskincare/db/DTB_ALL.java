@@ -78,11 +78,12 @@ public class DTB_ALL {
         requestQueue.add(jsonArrayRequest);
     }
     public static ArrayList<db_User> user  = new ArrayList<>();
-    public ArrayList<db_User> getUser(Context context) {
+    public void getUser(Context context) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(server.DuongDanUser, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
+                Toast.makeText(context, "User " + response, Toast.LENGTH_SHORT).show();
                 if(response!=null){
                     user = new ArrayList<>();
                     for (int i = 0; i<response.length(); i++){
@@ -91,13 +92,15 @@ public class DTB_ALL {
                             mauser = jsonObject.getInt("mauser");
                             TenUser = jsonObject.getString("username");
                             matKhau = jsonObject.getString("password");
-                            anhDD = jsonObject.getString("anh");
+                            anhDD = jsonObject.getString("anhdd");
                             hoten = jsonObject.getString("hoten");
                             gioiTinh = jsonObject.getString("gioitinh");
                             diachi = jsonObject.getString("diachi");
                             sdt = jsonObject.getString("sodienthoai");
                             email = jsonObject.getString("email");
                             user.add(new db_User(mauser, TenUser, matKhau, anhDD, hoten, gioiTinh, diachi, sdt, email ));
+                            Toast.makeText(context, "" + mauser, Toast.LENGTH_SHORT).show();
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -111,8 +114,6 @@ public class DTB_ALL {
             }
         });
         requestQueue.add(jsonArrayRequest);
-        Toast.makeText(context, "Sẵn sàng", Toast.LENGTH_SHORT).show();
-        return user;
     }
 
     public static ArrayList<db_SanPham> sanpham = new ArrayList<>();

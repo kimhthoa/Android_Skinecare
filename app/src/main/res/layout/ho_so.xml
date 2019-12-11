@@ -18,8 +18,7 @@
         <ImageView
             android:id="@+id/ho_so_anhNen"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:src="@drawable/slide1" />
+            android:layout_height="160dp"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="30dp"
