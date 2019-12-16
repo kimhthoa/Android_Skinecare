@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 import com.example.thesameskincare.R;
-import com.example.thesameskincare.db.DTB_ALL;
+import com.example.thesameskincare.fragment.TrangChu_Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Search extends AppCompatActivity {
 
     List<Suggestion> msuggestion = new ArrayList<>();
-    Contain_All contain_all = new Contain_All();
     FloatingSearchView searchView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class Search extends AppCompatActivity {
         searchView.setOnFocusChangeListener(new FloatingSearchView.OnFocusChangeListener() {
             @Override
             public void onFocus() {
-                //searchView.showProgress();
+                searchView.showProgress();
                 searchView.swapSuggestions(getSuggestion(searchView.getQuery()));
                 searchView.hideProgress();
             }
@@ -83,8 +82,8 @@ public class Search extends AppCompatActivity {
             return suggestions;
         }
         public void initData(){
-            for (int i = 0; i< DTB_ALL.sanpham.size(); i++){
-                msuggestion.add(new Suggestion(DTB_ALL.sanpham.get(i).getTenSanPham()));
+            for (int i = 0; i< TrangChu_Fragment.sanpham.size(); i++){
+                msuggestion.add(new Suggestion(TrangChu_Fragment.sanpham.get(i).getTenSanPham()));
             }
         }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -33,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
+            android:id="@+id/dangky_HoTen"
             android:hint="@string/nhap_ht"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -41,25 +43,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/dangky_username"
+                android:hint="User name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/dangky_email"
                 android:hint="@string/nhap_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true">
             <EditText
+                android:id="@+id/dangky_matkhau"
                 android:hint="@string/mat_khau"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true">
             <EditText
+                android:id="@+id/dangky_Nhaplaimk"
                 android:hint="@string/nhap_lai_mk"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
@@ -67,6 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <CheckBox
+            android:id="@+id/dangky_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
@@ -76,6 +96,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <Button
+        android:id="@+id/dangky_dangky"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:text="@string/dang_ky"

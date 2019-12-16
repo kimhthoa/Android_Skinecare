@@ -21,12 +21,23 @@
             android:layout_height="160dp"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:id="@+id/hoso_anhDaiDien"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_perm_identity_black_24dp"
             app:civ_border_width="1dp"></de.hdodenhof.circleimageview.CircleImageView>
+        <TextView
+            android:id="@+id/hosoHoTen"
+            android:textColor="@color/den"
+            android:textSize="20dp"
+            android:text="HIHI"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:layout_below="@id/hoso_anhDaiDien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 
@@ -36,85 +47,140 @@
         android:background="@color/xam">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <LinearLayout
                 android:background="@color/trang"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="Tên"
-                android:textColor="@color/den" />
-
-            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:background="@color/trang"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="Tên đăng nhập"
-                android:textColor="@color/den" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@color/den"
+                    android:textSize="15dp"
+                    android:paddingBottom="10dp"
+                    android:text="Tên đăng nhập" />
+                <TextView
+                    android:id="@+id/hosotendn"
+                    android:textColor="@color/den"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <LinearLayout
                 android:background="@color/trang"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="Giới tính"
-                android:textColor="@color/den" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Giới tính"
+                    android:textColor="@color/den" />
+                <TextView
+                    android:id="@+id/hosogioitinh"
+                    android:textColor="@color/den"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:background="@color/trang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:textColor="@color/den"
+                    android:textSize="15dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Ngày sinh" />
+                <TextView
+                    android:id="@+id/hosoNgaySinh"
+                    android:textColor="@color/den"
+                    android:textSize="15dp"
+                    android:text="02/07/1998"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
+            <LinearLayout
                 android:background="@color/trang"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="Ngày sinh"
-                android:textColor="@color/den" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/toi_fragment_thietlaptk"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@color/den"
+                    android:textSize="15dp"
+                    android:paddingBottom="10dp"
+                    android:text="Số điện thoại" />
+                <TextView
+                    android:id="@+id/hosoSDT"
+                    android:textColor="@color/den"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/toi_fragment_thietlaptk"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <LinearLayout
                 android:background="@color/trang"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="Số điện thoại"
-                android:textColor="@color/den" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Email"
+                    android:textColor="@color/den"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/hoso_email"
+                    android:textColor="@color/den"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
+            <LinearLayout
                 android:background="@color/trang"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="Email"
-                android:textColor="@color/den" />
-
-            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:background="@color/trang"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="Thiết lập mật khẩu"
-                android:textColor="@color/den" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Thiết lập mật khẩu"
+                    android:textColor="@color/den"
+                    android:textSize="15dp"/>
+                <TextView
+                    android:text="**********"
+                    android:textColor="@color/den"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 

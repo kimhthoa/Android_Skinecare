@@ -3,13 +3,37 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/imganhsp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
-    <EditText
-        android:id="@+id/edtTensp"
-        android:text="Phấn nước Missha"
+        android:id="@+id/item_danhmuc_img"
+        android:layout_width="150dp"
+        android:layout_height="150dp">
+    </ImageView>
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/item_resuilt_txtTensp"
+            android:textColor="@color/den"
+            android:text="Tên sản phẩm"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/item_resuilt_hang"
+            android:textColor="@color/den"
+            android:text="Hãng"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/item_resuilt_gia"
+            android:textColor="#DF3030"
+            android:text="Giá"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
 </LinearLayout>

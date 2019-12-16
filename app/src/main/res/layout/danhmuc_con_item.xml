@@ -8,22 +8,30 @@
         android:layout_height="150dp">
     </ImageView>
     <LinearLayout
+        android:layout_marginLeft="5dp"
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/item_danhmuc_txtTensp"
+            android:textColor="@color/den"
             android:text="Tên sản phẩm"
+            android:textStyle="bold"
+            android:textSize="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/item_danhmuc_hang"
+            android:textColor="@color/den"
             android:text="Hãng"
+            android:textSize="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/item_danhmuc_gia"
+            android:textColor="#DF3030"
             android:text="Giá"
+            android:textSize="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>

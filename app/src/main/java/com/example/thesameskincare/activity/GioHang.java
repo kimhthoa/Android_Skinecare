@@ -1,5 +1,6 @@
 package com.example.thesameskincare.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,8 +22,8 @@ public class GioHang extends AppCompatActivity implements View.OnClickListener {
     CheckBox checkBox;
     static TextView txtGia;
     Button thanhToan;
-     static GioHang_Adapter gioHang_adapter;
-
+    static GioHang_Adapter gioHang_adapter;
+    static int count;
     ListView listView;
 
     @Override
@@ -32,7 +33,6 @@ public class GioHang extends AppCompatActivity implements View.OnClickListener {
 
         initData();
         checkGioHang();
-
         imgBack.setOnClickListener(this);
         imgMess.setOnClickListener(this);
         thanhToan.setOnClickListener(this);
@@ -59,19 +59,25 @@ public class GioHang extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.giohang_fragment_imgmess: break;
             case R.id.giohang_fragment_btnMuahang:
-                Toast.makeText(this, "Bạn đã đặt hàng thành công", Toast.LENGTH_SHORT).show();
+                if(Contain_All.checklogin == false)
+                {
+                    Intent intent1 = new Intent(GioHang.this, DangNhap.class);
+                    startActivity(intent1);
+                }else Toast.makeText(this, "Bạn đã đặt hàng thành công", Toast.LENGTH_SHORT).show();
+
         }
     }
     public static void checkGioHang() {
         if (Contain_All.gioHangs.size() > 0) {
-            int sum = 0;
-
+            int sum = 0; count = 0;
             for (int i = 0; i < Contain_All.gioHangs.size(); i++) {
                 if (Contain_All.gioHangs.get(i).getSoluong() == 0) {
                     Contain_All.gioHangs.remove(i);
                     gioHang_adapter.notifyDataSetChanged();
-                } else
+                } else{
+                    count++;
                     sum += Contain_All.gioHangs.get(i).getSoluong() * Contain_All.gioHangs.get(i).getGia();
+                }
             }
             if (Contain_All.gioHangs.size() > 0) {
             }

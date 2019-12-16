@@ -59,7 +59,7 @@ public class GioHang_Adapter extends BaseAdapter {
             holderDM.checkBox = (CheckBox) convertView.findViewById(R.id.giohang_checkbox1);
             holderDM.tvTenSP = (TextView) convertView.findViewById(R.id.giohang_item_tensp);
             holderDM.tvGiaSP = (TextView) convertView.findViewById(R.id.giohang_item_giasp);
-            holderDM.btnPlus = (Button) convertView.findViewById(R.id.giohang_item_tru);
+            holderDM.btnPlus = (Button) convertView.findViewById(R.id.giohang_item_cong);
             holderDM.btbMinius = (Button) convertView.findViewById(R.id.giohang_item_tru);
             holderDM.btnsua = (Button) convertView.findViewById(R.id.giohang_item_sua);
             holderDM.sl = (EditText) convertView.findViewById(R.id.giohang_item_edtSoLuong);

@@ -111,6 +111,7 @@
             android:text="Mới xem"
             android:textColor="@color/den" />
             <TextView
+                android:id="@+id/toi_fragment_DanhGia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"

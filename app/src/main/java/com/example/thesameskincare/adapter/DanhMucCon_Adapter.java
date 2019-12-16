@@ -61,8 +61,10 @@ public class DanhMucCon_Adapter extends BaseAdapter {
             convertView.setTag(holderDM);
         }else holderDM = (ViewHolderDM) convertView.getTag();
 
+
         db_SanPham dm = listspCon.get(position);
-        //holderDM.hinh.setImageResource(getIdAvatar(dm.getAnhsp()));
+        holderDM.hang.setText("Hãng: "+dm.getThuonghieu());
+        holderDM.gia.setText(dm.getDongia()+"đ");
         holderDM.tensp.setText(dm.getTenSanPham());
         Picasso.get()
                 .load(getIdAvatar(dm.getAnh()))

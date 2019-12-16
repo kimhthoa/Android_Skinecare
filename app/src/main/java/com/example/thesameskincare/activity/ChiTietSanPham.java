@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.example.thesameskincare.R;
 import com.example.thesameskincare.adapter.GioHang_Adapter;
-import com.example.thesameskincare.adapter.RecycleViewAdapter_DanhGiaSP;
 import com.example.thesameskincare.db.db_DanhGiaSP;
 import com.example.thesameskincare.db.db_GioHang;
 import com.example.thesameskincare.db.db_SanPham;
@@ -40,7 +39,7 @@ public class ChiTietSanPham extends AppCompatActivity implements View.OnClickLis
     RecyclerView rvdanhgia;
     Button chonmua, chonmuascroll;
     ScrollView scrollView;
-    db_SanPham sanpham;
+    db_SanPham sanpham, sanphamCon;
     public ArrayList<db_DanhGiaSP> listdg = new ArrayList<>();
     GioHang_Adapter gioHang_adapter;
 
@@ -54,7 +53,9 @@ public class ChiTietSanPham extends AppCompatActivity implements View.OnClickLis
         //nhận dữ liệu từ Trang chủ
         getBundlesp();
         //đỗ dữ liệu ra
-        setDuLieu();
+
+        setDuLieu(sanpham);
+
 
         androidx.appcompat.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.chitietsanpham_toolbar);
         setSupportActionBar(toolbar);
@@ -116,14 +117,14 @@ public class ChiTietSanPham extends AppCompatActivity implements View.OnClickLis
         Log.i("CustomListView", "Res Name: "+ name+"==> Res ID = "+ resID);
         return resID;
     }
-    public void setDuLieu(){
-        setTitle(sanpham.getTenSanPham());
-        phivc.setText(sanpham.getPhivanchuyen()+"");
-        slcosan.setText(sanpham.getSoluongcosan()+"");
-        thuonghieu.setText(sanpham.getThuonghieu());
-        dungtich.setText(sanpham.getDungtich()+"");
-        mota.setText(sanpham.getMota());
-        gia.setText(sanpham.getDongia()+"");
+    public void setDuLieu(db_SanPham sp){
+        setTitle(sp.getTenSanPham());
+        phivc.setText(sp.getPhivanchuyen()+"đ");
+        slcosan.setText(sp.getSoluongcosan()+"");
+        thuonghieu.setText(sp.getThuonghieu());
+        dungtich.setText(sp.getDungtich()+"ml");
+        mota.setText(sp.getMota());
+        gia.setText(sp.getDongia()+"đ");
 
     }
 

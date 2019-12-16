@@ -9,17 +9,25 @@
         android:paddingLeft="2dp"
         android:paddingRight="2dp">
         <ImageView
-            android:id="@+id/bigsale_item_img"
+            android:id="@+id/sanpham_img"
             android:background="@color/xam"
             android:layout_width="180dp"
             android:layout_height="180dp"/>
         <TextView
-            android:id="@+id/bigsale_txtMota"
+            android:id="@+id/sanpham_mota"
             android:paddingLeft="7dp"
-            android:layout_below="@id/bigsale_item_img"
+            android:layout_below="@id/sanpham_img"
             android:text="Đây là son này"
             android:textSize="12dp"
             android:textColor="#000"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/sanpham_gia"
+            android:text="15000"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:paddingLeft="7dp"
             android:layout_width="180dp"
             android:layout_height="wrap_content"/>
     </LinearLayout>

@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -16,6 +18,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.thesameskincare.R;
 import com.example.thesameskincare.db.db_GioHang;
 import com.example.thesameskincare.db.db_SanPham;
+import com.example.thesameskincare.db.db_User;
 import com.example.thesameskincare.fragment.DanhMuc_Fragment;
 import com.example.thesameskincare.fragment.ThongBao_Fragment;
 import com.example.thesameskincare.fragment.Toi_Fragment;
@@ -32,6 +35,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Contain_All extends AppCompatActivity implements View.OnClickListener {
 
@@ -39,8 +43,12 @@ public class Contain_All extends AppCompatActivity implements View.OnClickListen
 
     BottomNavigationView bnv;
     ImageView imgGioHang, imgMess;
+    TextView numGio;
+    CircleImageView imgTron;
     Button btnsearch;
+    static db_User user;
     public static ArrayList<db_GioHang> gioHangs;
+    public static boolean checklogin = false;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,40 +57,31 @@ public class Contain_All extends AppCompatActivity implements View.OnClickListen
 
         initData();
 
-        //if(CheckConnect.haveNetworkConnection(getApplicationContext())){
+//        if(CheckConnect.haveNetworkConnection(getApplicationContext())){
             bnv = (BottomNavigationView) findViewById(R.id.contain_all_bottomNavigation);
             bnv.setOnNavigationItemSelectedListener(navListenr);
             getSupportFragmentManager().beginTransaction().replace(R.id.contain_all_framelayout, new TrangChu_Fragment()).commit();
-            //getListUser();
-        //}else {
-            //CheckConnect.showToatshoft(getApplicationContext(), "Vui lòng kiểm tra lại kết nối");
-            //finish();
-       // }
+//        }else {
+//            CheckConnect.showToatshoft(getApplicationContext(), "Vui lòng kiểm tra lại kết nối");
+//        }
+        user = getUserFromSignIn();
         imgGioHang.setOnClickListener(this);
         imgMess.setOnClickListener(this);
         btnsearch.setOnClickListener(this);
-
+        gethienthiNum();
 
 
     }
-
-    private void getListUser() {
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        //Nhảy vào json đọc dữ liệu
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(server.DuongDanUser, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                //nếu Json trả về có giá trị thi...
-                if(response != null){
-
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                CheckConnect.showToatshoft(getApplicationContext(), error.toString());
-            }
-        });
+    public void gethienthiNum(){
+        numGio.setText(GioHang.count +"");
+//        if (gioHangs.size()<=0){
+//            imgTron.setVisibility(View.INVISIBLE);
+//            numGio.setVisibility(View.INVISIBLE);
+//        }else {
+//            imgTron.setVisibility(View.VISIBLE);
+//            numGio.setVisibility(View.VISIBLE);
+//
+//        }
     }
 
     public BottomNavigationView.OnNavigationItemSelectedListener navListenr = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -113,6 +112,8 @@ public class Contain_All extends AppCompatActivity implements View.OnClickListen
         imgGioHang = findViewById(R.id.contain_all_btngiohang);
         imgMess = findViewById(R.id.contain_all_btnmess);
         btnsearch = (Button) findViewById(R.id.Contain_All_btnSearch);
+        imgTron = findViewById(R.id.contain_all_tron);
+        numGio = findViewById(R.id.containall_numbergio);
         gioHangs = new ArrayList<>();
     }
 
@@ -128,6 +129,11 @@ public class Contain_All extends AppCompatActivity implements View.OnClickListen
                 startActivity(intentSearch);
                 break;
         }
+    }
+    public db_User getUserFromSignIn(){
+        Intent intent = getIntent();
+        db_User db_user = (db_User) intent.getSerializableExtra("parcelable" );
+        return db_user;
     }
 
 }

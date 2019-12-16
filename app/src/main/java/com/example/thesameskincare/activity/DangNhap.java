@@ -16,9 +16,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.thesameskincare.R;
-import com.example.thesameskincare.db.DTB_ALL;
 import com.example.thesameskincare.db.db_SanPham;
 import com.example.thesameskincare.db.db_User;
+import com.example.thesameskincare.fragment.DanhMuc_Fragment;
 import com.example.thesameskincare.fragment.TrangChu_Fragment;
 import com.example.thesameskincare.ultil.server;
 
@@ -30,7 +30,6 @@ import java.util.ArrayList;
 
 public class DangNhap extends AppCompatActivity implements View.OnClickListener {
 
-    DTB_ALL db ;
     Button btnDangNhap, btnDangKy, btnQuenMK;
     EditText edtUser, edtPass;
 
@@ -86,7 +85,6 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
         }
     }
     public void checkLognIn(){
-        Toast.makeText(this, "userName: " + user.size(), Toast.LENGTH_SHORT).show();
         String tname = edtUser.getText().toString() ;
         String tpass = edtPass.getText().toString();
         listu =  new ArrayList<>();
@@ -100,7 +98,9 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
         else  if (listu.size() == 1){
             if (tpass.equals(user.get(0).getMatKhau())){
                 Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(DangNhap.this, Contain_All.class );
+                Contain_All.checklogin = true;
+                Intent intent = new Intent(DangNhap.this, Contain_All.class);
+                intent.putExtra("parcelable", user.get(0));
                 startActivity(intent);
 
             }
@@ -115,7 +115,6 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(server.DuongDanUser, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                Toast.makeText(getApplicationContext(), "User " + response, Toast.LENGTH_SHORT).show();
                 if(response!=null){
                     user = new ArrayList<>();
                     for (int i = 0; i<response.length(); i++){
@@ -130,7 +129,7 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
                             diachi = jsonObject.getString("diachi");
                             sdt = jsonObject.getString("sodienthoai");
                             temail = jsonObject.getString("email");
-                            user.add(new db_User(mauser, TenUser, matKhau, anhDD, hoten, gioiTinh, diachi, sdt, email ));
+                            user.add(new db_User(mauser, TenUser, matKhau, anhDD, hoten, gioiTinh, diachi, sdt, temail ));
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -146,13 +145,4 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
         });
         requestQueue.add(jsonArrayRequest);
     }
-
-    //Truyền dữ liệu từ activity Dangnhap tới activity HoSo
-    public void bundle(ArrayList<db_User> list, int i){
-        Intent intent = new Intent(getApplicationContext(), HoSo.class);
-        db_User db_user = list.get(i);
-        intent.putExtra("parcelable", db_user);
-        startActivity(intent);
-    }
-
 }

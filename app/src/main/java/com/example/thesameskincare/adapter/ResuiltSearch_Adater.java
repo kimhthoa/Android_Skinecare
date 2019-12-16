@@ -42,7 +42,7 @@ public class ResuiltSearch_Adater extends BaseAdapter {
         return position;
     }
     private class ViewHolderDM{
-        TextView ten;
+        TextView ten, hang, gia;
         ImageView hinh;
     }
     @Override
@@ -52,15 +52,18 @@ public class ResuiltSearch_Adater extends BaseAdapter {
             holderDM = new ViewHolderDM();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(layout, null);
-            holderDM.hinh = (ImageView) convertView.findViewById(R.id.imganhsp);
-            holderDM.ten = (TextView) convertView.findViewById(R.id.edtTensp);
+            holderDM.hinh = (ImageView) convertView.findViewById(R.id.item_danhmuc_img);
+            holderDM.ten = (TextView) convertView.findViewById(R.id.item_resuilt_txtTensp);
+            holderDM.hang = (TextView) convertView.findViewById(R.id.item_resuilt_hang);
+            holderDM.gia = (TextView) convertView.findViewById(R.id.item_resuilt_gia);
             convertView.setTag(holderDM);
         }else holderDM = (ViewHolderDM) convertView.getTag();
 
         db_SanPham dm = listsp.get(position);
 
-        //holderDM.hinh.setImageResource(getIdAvatar(dm.getAnhsp()));
-        holderDM.ten.setText(dm.getAnh());
+        holderDM.ten.setText(dm.getTenSanPham());
+        holderDM.hang.setText("Hãng" + dm.getThuonghieu());
+        holderDM.gia.setText(dm.getDongia()+"đ");
         Picasso.get()
                 .load(getIdAvatar(dm.getAnh()))
                 .placeholder(R.drawable.loading)

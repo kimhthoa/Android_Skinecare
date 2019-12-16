@@ -10,15 +10,15 @@ import android.widget.TextView;
 
 import com.example.thesameskincare.R;
 import com.example.thesameskincare.db.db_SanPham;
-import com.example.thesameskincare.db.db_bigsale;
 
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RecycleViewAdapter_BigSale extends RecyclerView.Adapter<RecycleViewAdapter_BigSale.ViewHolder_BigSale> {
+public class RecycleViewAdapter_sanpham extends RecyclerView.Adapter<RecycleViewAdapter_sanpham.ViewHolder_BigSale> {
     ArrayList<db_SanPham> listSale;
+    int layout;
     Context context;
     private onItemClickListener mListener;
 
@@ -30,8 +30,9 @@ public class RecycleViewAdapter_BigSale extends RecyclerView.Adapter<RecycleView
         mListener = listener;
     }
 
-    public RecycleViewAdapter_BigSale(ArrayList<db_SanPham> listSale, Context context) {
+    public RecycleViewAdapter_sanpham(ArrayList<db_SanPham> listSale, int layout, Context context) {
         this.listSale = listSale;
+        this.layout = layout;
         this.context = context;
     }
 
@@ -39,7 +40,7 @@ public class RecycleViewAdapter_BigSale extends RecyclerView.Adapter<RecycleView
     @Override
     public ViewHolder_BigSale onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.bigsale_item, parent, false);
+        View view = inflater.inflate(layout, parent, false);
         return new ViewHolder_BigSale(view, mListener);
     }
 
@@ -47,6 +48,7 @@ public class RecycleViewAdapter_BigSale extends RecyclerView.Adapter<RecycleView
     public void onBindViewHolder(@NonNull ViewHolder_BigSale holder, int position) {
         holder.imgBigsale.setImageResource(getIdAvatar(listSale.get(position).getAnh()));
         holder.txtmota.setText(listSale.get(position).getTenSanPham());
+        holder.txtgia.setText(listSale.get(position).getDongia() + "đ");
     }
 
     @Override
@@ -56,11 +58,12 @@ public class RecycleViewAdapter_BigSale extends RecyclerView.Adapter<RecycleView
 
     public static class ViewHolder_BigSale extends RecyclerView.ViewHolder{
         ImageView imgBigsale;
-        TextView txtmota;
+        TextView txtmota, txtgia;
         public ViewHolder_BigSale(@NonNull View itemView, final onItemClickListener listener) {
             super(itemView);
-            imgBigsale = (ImageView) itemView.findViewById(R.id.bigsale_item_img);
-            txtmota = (TextView) itemView.findViewById(R.id.bigsale_txtMota);
+            imgBigsale = (ImageView) itemView.findViewById(R.id.sanpham_img);
+            txtmota = (TextView) itemView.findViewById(R.id.sanpham_mota);
+            txtgia = (TextView) itemView.findViewById(R.id.sanpham_gia);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

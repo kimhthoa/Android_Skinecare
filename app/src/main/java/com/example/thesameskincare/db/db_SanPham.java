@@ -15,8 +15,9 @@ public class db_SanPham implements Serializable {
     private String anh;
     private int maloai;
     private int mashop;
+    private int giamgia;
 
-    public db_SanPham(int maSanPham, String tenSanPham, String thuonghieu, int dungtich, String mota, int dongia, int soluongcosan, int phivanchuyen, String muc, String anh, int maloai, int mashop) {
+    public db_SanPham(int maSanPham, String tenSanPham, String thuonghieu, int dungtich, String mota, int dongia, int soluongcosan, int phivanchuyen, String muc, String anh, int maloai, int mashop, int giamgia) {
         this.maSanPham = maSanPham;
         this.tenSanPham = tenSanPham;
         this.thuonghieu = thuonghieu;
@@ -29,6 +30,7 @@ public class db_SanPham implements Serializable {
         this.anh = anh;
         this.maloai = maloai;
         this.mashop = mashop;
+        this.giamgia = giamgia;
     }
 
     public int getMaSanPham() {
@@ -125,5 +127,13 @@ public class db_SanPham implements Serializable {
 
     public void setMashop(int mashop) {
         this.mashop = mashop;
+    }
+
+    public int getGiamgia() {
+        return giamgia;
+    }
+
+    public void setGiamgia(int giamgia) {
+        this.giamgia = giamgia;
     }
 }
