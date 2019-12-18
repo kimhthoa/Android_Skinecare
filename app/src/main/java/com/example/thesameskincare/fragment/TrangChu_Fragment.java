@@ -65,6 +65,7 @@ public class TrangChu_Fragment extends Fragment {
          recyclerViewSale = (RecyclerView) view.findViewById(R.id.danhmuc_fragment_rcvBigSale);
          recyclerViewMoiNhat = (RecyclerView) view.findViewById(R.id.danhmuc_fragment_rcvMoiNhat);
          recyclerViewBanChayNhat = (RecyclerView) view.findViewById(R.id.danhmuc_fragment_rcvBanChayNhat);
+
         ViewFlipper viewFlipper = (ViewFlipper) view.findViewById(R.id.trangchu_fragment_viewFlipper);
 
         //slideShow
@@ -232,7 +233,4 @@ public class TrangChu_Fragment extends Fragment {
         });
         requestQueue.add(jsonArrayRequest);
     }
-
-
-
 }

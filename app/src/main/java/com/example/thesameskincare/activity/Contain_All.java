@@ -73,15 +73,16 @@ public class Contain_All extends AppCompatActivity implements View.OnClickListen
 
     }
     public void gethienthiNum(){
-        numGio.setText(GioHang.count +"");
-//        if (gioHangs.size()<=0){
-//            imgTron.setVisibility(View.INVISIBLE);
-//            numGio.setVisibility(View.INVISIBLE);
-//        }else {
-//            imgTron.setVisibility(View.VISIBLE);
-//            numGio.setVisibility(View.VISIBLE);
-//
-//        }
+//        numGio.setText(GioHang.count +"");
+        if (GioHang.count > 0){
+            imgTron.setVisibility(View.VISIBLE);
+            numGio.setVisibility(View.VISIBLE);
+            numGio.setText(GioHang.count +"");
+
+        }else {
+            imgTron.setVisibility(View.INVISIBLE);
+            numGio.setVisibility(View.INVISIBLE);
+        }
     }
 
     public BottomNavigationView.OnNavigationItemSelectedListener navListenr = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -114,8 +115,11 @@ public class Contain_All extends AppCompatActivity implements View.OnClickListen
         btnsearch = (Button) findViewById(R.id.Contain_All_btnSearch);
         imgTron = findViewById(R.id.contain_all_tron);
         numGio = findViewById(R.id.containall_numbergio);
-        gioHangs = new ArrayList<>();
+        if(gioHangs != null){
+
+        }else gioHangs = new ArrayList<>();
     }
+
 
     @Override
     public void onClick(View v) {

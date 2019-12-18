@@ -3,6 +3,7 @@ package com.example.thesameskincare.activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,8 +12,26 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.thesameskincare.R;
 import com.example.thesameskincare.adapter.GioHang_Adapter;
+import com.example.thesameskincare.db.db_GioHang;
+import com.example.thesameskincare.ultil.server;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,7 +82,79 @@ public class GioHang extends AppCompatActivity implements View.OnClickListener {
                 {
                     Intent intent1 = new Intent(GioHang.this, DangNhap.class);
                     startActivity(intent1);
-                }else Toast.makeText(this, "Bạn đã đặt hàng thành công", Toast.LENGTH_SHORT).show();
+                }else {
+
+
+                    RequestQueue requestQueue = Volley.newRequestQueue(this);
+                    StringRequest stringRequest =new StringRequest(Request.Method.POST, server.DuongDanGioHang, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(final String madonhang) {
+                            Log.d("Mahoadon", madonhang);
+                            if(Integer.parseInt(madonhang) > 0){
+                                RequestQueue queue = Volley.newRequestQueue(GioHang.this);
+                                StringRequest request = new StringRequest(Request.Method.POST, server.DuongDanChiTietGioHang, new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        Log.d("ChiTiethaha", response);
+                                        if(response.equals("1") ){
+                                            Contain_All.gioHangs.clear();
+                                            Contain_All.gioHangs.size();
+                                            Toast.makeText(GioHang.this, "Bạn đã thêm dữ liệu vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(GioHang.this,Contain_All.class);
+                                            startActivity(intent);
+                                            Toast.makeText(GioHang.this, "Mời bạn tiếp tực mua hàng", Toast.LENGTH_SHORT).show();
+                                        }else{
+                                            Toast.makeText(GioHang.this, "Lỗi", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+
+                                    }
+                                }){
+                                    @Override
+                                    protected Map<String, String> getParams() throws AuthFailureError {
+                                        JSONArray jsonArray = new JSONArray();
+                                        for (db_GioHang gh : Contain_All.gioHangs){
+                                            JSONObject jsonObject = new JSONObject();
+                                            try {
+                                                jsonObject.put("masp",gh.getIdSanpham());
+                                                jsonObject.put("soluong",gh.getSoluong());
+                                                jsonObject.put("magh",madonhang);
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                            jsonArray.put(jsonObject);
+                                        }
+                                        HashMap<String,String> hashMap = new HashMap<String, String>();
+                                        hashMap.put("json", String.valueOf(jsonArray));
+                                        return hashMap;
+                                    }
+                                };
+                                queue.add(request);
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            HashMap<String , String> hashMap = new HashMap<String,String>();
+                            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                            Date date = new Date();
+
+                            hashMap.put("mauser", String.valueOf(Contain_All.user.getMaUser()));
+                            hashMap.put("ngaymua", format.format(date));
+                            return hashMap;
+                        }
+                    };
+                    requestQueue.add(stringRequest);
+                    Toast.makeText(this, "Bạn đã đặt hàng thành công", Toast.LENGTH_SHORT).show();
+                }
 
         }
     }

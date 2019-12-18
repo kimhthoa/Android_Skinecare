@@ -6,6 +6,7 @@ import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,8 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener {
     DangNhap db;
     TextView login;
     Button signUpButton;
+    CheckBox cbDongY;
+    boolean x = false;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,13 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener {
         matkhau = findViewById(R.id.dangky_matkhau);
         nhaplaimk = findViewById(R.id.dangky_Nhaplaimk);
         signUpButton = findViewById(R.id.dangky_dangky);
+        cbDongY = findViewById(R.id.dangky_checkbox);
+        cbDongY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                x = true;
+            }
+        });
 
     }
 
@@ -66,15 +76,17 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener {
 
 
         // Check if all strings are null or not
-        if (getFullName.equals("") || getFullName.length() == 0)
+        if (x==false)
+            cbDongY.setError("Bạn chưa đồng ý");
+        else if (getFullName.equals("") || getFullName.length() == 0)
             hoten.setError("Nhập lại họ tên");
-        if (getUserName.equals("") || getUserName.length() == 0)
+        else if (getUserName.equals("") || getUserName.length() == 0)
             username.setError("Nhập lại User name");
-        if (getEmailId.equals("") || getEmailId.length() == 0)
+        else if (getEmailId.equals("") || getEmailId.length() == 0)
             email.setError("Nhập lại Email");
-        if (getPassword.equals("") || getPassword.length() == 0)
+        else if (getPassword.equals("") || getPassword.length() == 0)
             matkhau.setError("Nhập lại mật khẩu");
-        if (getConfirmPassword.equals("") || getConfirmPassword.length() == 0)
+        else if (getConfirmPassword.equals("") || getConfirmPassword.length() == 0)
             nhaplaimk.setError("Mật khẩu không đúng");
             // Check if both password should be equal
         else if (!getConfirmPassword.equals(getPassword))
@@ -83,7 +95,7 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener {
             // Else do signup or do your stuff
         else {
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, server.DuongDanUser, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, server.DuongDanDangKy, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     Log.d("id", response);

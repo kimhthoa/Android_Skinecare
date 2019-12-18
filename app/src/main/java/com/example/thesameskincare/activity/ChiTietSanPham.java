@@ -119,6 +119,7 @@ public class ChiTietSanPham extends AppCompatActivity implements View.OnClickLis
     }
     public void setDuLieu(db_SanPham sp){
         setTitle(sp.getTenSanPham());
+        img.setImageResource(getIdAvatar(sp.getAnh()));
         phivc.setText(sp.getPhivanchuyen()+"đ");
         slcosan.setText(sp.getSoluongcosan()+"");
         thuonghieu.setText(sp.getThuonghieu());

@@ -61,7 +61,7 @@ public class GioHang_Adapter extends BaseAdapter {
             holderDM.tvGiaSP = (TextView) convertView.findViewById(R.id.giohang_item_giasp);
             holderDM.btnPlus = (Button) convertView.findViewById(R.id.giohang_item_cong);
             holderDM.btbMinius = (Button) convertView.findViewById(R.id.giohang_item_tru);
-            holderDM.btnsua = (Button) convertView.findViewById(R.id.giohang_item_sua);
+            holderDM.btnxoa = (Button) convertView.findViewById(R.id.giohang_item_sua);
             holderDM.sl = (EditText) convertView.findViewById(R.id.giohang_item_edtSoLuong);
             convertView.setTag(holderDM);
         }else holderDM = (ViewHolder) convertView.getTag();
@@ -110,13 +110,20 @@ public class GioHang_Adapter extends BaseAdapter {
                 }
             }
         });
+        holderDM.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
         return convertView;
     }
     static class ViewHolder{
         CheckBox checkBox;
         ImageView imageView;
         TextView tvTenSP, tvGiaSP;
-        Button btnPlus,btbMinius,btnsua;
+        Button btnPlus,btbMinius,btnxoa;
         EditText sl;
     }
 
